@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
+
+    <script src="bootstrap.js"></script>
+    <!-- CSS only -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <!-- JavaScript Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   -->
+</head>
+
+<!-- フォーム -->
+<body style="padding-top: 50px">
+    <h1 class="text-center">オープンキャンパス申込フォーム</h1>
+    <form class="row g-3 px-5 pt-4 mb-5">
+
+        <!-- テキストフォーム -->
+        <div class="col-md-6">
+            <label for="inputName1" class="form-label">性</label>
+            <input type="text" class="form-control" id="inputName1" placeholder="例）山田">
+        </div>
+        <div class="col-md-6">
+            <label for="inputName2" class="form-label">名</label>
+            <input type="text" class="form-control" id="inputName2" placeholder="例）花子">
+        </div>
+        <div class="col-md-6">
+            <label for="inputName3" class="form-label">せい</label>
+            <input type="text" class="form-control" id="inputName3" placeholder="れい）やまだ">
+        </div>
+        <div class="col-md-6">
+            <label for="inputName4" class="form-label">めい</label>
+            <input type="text" class="form-control" id="inputName4" placeholder="れい）はなこ">
+        </div>
+        <div class="col-12">
+            <label for="inputAddress" class="form-label">住所</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="例）東京都足立区111-1111">
+        </div>
+        <div class="col-12">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="例）info@abc.ac.jp">
+        </div>
+        <div class="col-md-6">
+            <label for="inputHighschool" class="form-label">在学高校名</label>
+            <input type="text" class="form-control" id="inputHighschool" placeholder="例）日本高校">
+        </div>
+
+        <!-- 選択フォーム -->
+        <div class="col-md-4">
+            <label for="inputGrade" class="form-label">学年</label>
+            <select id="inputGrade" class="form-select">
+                <option selected>1年生</option>
+                <option>2年生</option>
+                <option>3年生</option>
+            </select>
+        </div>
+
+        <!-- チェックフォーム -->
+        <div class="col-md-12">
+            オープンキャンパスについて、どこで知りましたか？<br>
+            <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                <label class="form-check-label" for="flexCheckDefault1">
+                Webサイト
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                <label class="form-check-label" for="flexCheckDefault2">
+                家族・知人の紹介
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                <label class="form-check-label" for="flexCheckDefault3">
+                TV
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                <label class="form-check-label" for="flexCheckDefault4">
+                学校を通して
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+                <label class="form-check-label" for="flexCheckDefault5">
+                メールマガジン
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault6">
+                <label class="form-check-label" for="flexCheckDefault6">
+               その他
+                </label>
+              </div>
+        </div>
+        <div class="col-12 pt-3">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    間違いがないか、もう一度確認してください。
+                </label>
+            </div>
+        </div>
+
+        <!-- 最後に申し込みボタンを設置 -->
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">申込</button>
+        </div>
+    </form>
+</body>

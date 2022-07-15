@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="my-style.css">
+
+    <script src="bootstrap.js"></script>
+    <!-- CSS only -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <!-- JavaScript Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   -->
+</head>
+
+<body>
+    <!-- ナビゲーションバー -->
+
+    <!-- 
+    前提として二段のナビバーを作成する為、bootstrap.cssを少し改変
+    Navbarのプロパティにおいて display: flex → display: box に変更
+    これにより、
+
+    container-fluid(navbar-brandとnavbar-exが格納)
+    ----------------------------------------------
+    navbar-collapse
+
+    の二段構造ができるようになった。 -->
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+        <div class="container-fluid">
+            <!-- ロゴ -->
+            <a class="navbar-brand" href="./index.html">
+                <div class="d-flex align-items-center">
+                    <img src="./img/logo.png" alt="logo" width="80">
+                    <b class="logo">令和学院大学</b>
+                </div>
+            </a>
+
+            <!-- lgサイズ以下はトグルメニューを表示　そのトグルボタン -->
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- 右上に表示するリンクリスト -->
+            <ul class="navbar-ex d-none d-lg-block pull-right">
+                <ul class="navbar-nav">
+                    <li class="exnav-item">
+                        <a class="nav-link" href="./index.html">
+                            <span class="text-primary">></span>
+                            入試情報
+                        </a>
+                    </li>
+                    <li class="exnav-item">
+                        <a class="nav-link" href="index.html">
+                            <span class="text-primary">></span>
+                            アクセス
+                        </a>
+                    </li>
+
+                    <!-- SNSボタンを表示するポップアップを設定 -->
+                    <li class="exnav-item">
+                        <label class="open nav-link" for="pop-up">
+                            <span class="text-primary">></span>
+                            SNS
+                        </label>
+                        <input type="checkbox" id="pop-up">
+                        
+                        <!-- 直前のチェックボックスにチェックが入っている＝クリックされた際に以下のウィンドウをポップアップ -->
+                        <div class="overlay">
+                            <div class="window">
+                                <label class="close" for="pop-up">×</label>
+                                <div class="col-lg-7 mb-4">
+                                    <div class="bg-white p-4 rounded shadow-sm h-100">
+                                        <!-- ボタン追加 -->
+                                        <button class="btn btn-success btn-circle m-1">
+                                            <img src="./img/LINEアイコン.png" alt="LINE" width="40">
+                                        </button>
+                                        <button class="btn btn-primary btn-circle m-1" onclick="window.open('https://www.Twitter.com/')" target="_blank">
+                                            <img src="./img/Twitterアイコン.png" alt="Twitter" width="30">
+                                        </button>
+                                        <button class="btn btn-danger btn-circle m-1">
+                                            <img src="./img/インスタグラムアイコン.png" alt="インスタグラム" width="25">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+
+        <!-- lg以下でトグルメニュ―に格納されるコンポーネント -->
+        <div class="collapse navbar-collapse" aria-expanded="true" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" style="padding-left: 0">
+                <li class="col-4 col-lg-2 nav-item border">
+                    <a class="nav-link" href="#news">
+                        <div class="icon_wrap">
+                            <img src="./img/ニュースアイコン.png" alt="ニュース" height="28">
+                        </div>
+                        <span style="color: #fff">ニュース</span>
+                    </a>
+                </li>
+                <li class="col-4 col-lg-2 nav-item border">
+                    <a class="nav-link" href="#achirve">
+                        <div class="icon_wrap">
+                            <img src="./img/学生アイコン.png" alt="学生の活躍" height="28">
+                        </div>
+                        <span style="color: #fff">学生の活躍</span>
+                    </a>
+                </li>
+                <li class="col-4 col-lg-2 nav-item border">
+                    <a class="nav-link" href="#opencanpas">
+                        <div class="icon_wrap">
+                            <img src="./img/ドアアイコン.png" alt="オープンキャンパス" height="28">
+                        </div>
+                        <span style="color: #fff">オープンキャンパス</span>
+                    </a>
+                </li>
+                <li class="col-4 col-lg-2 nav-item border">
+                    <a class="nav-link" href="./index.html">
+                        <div class="icon_wrap">
+                            <img src="./img/学校アイコン.png" alt="学校生活" height="28">
+                        </div>
+                        <span style="color: #fff">学校生活</span>
+                    </a>
+                </li>
+                <li class="col-4 col-lg-2 nav-item border">
+
+                    <a class="nav-link" href="./index.html">
+                        <div class="icon_wrap">
+                            <img src="./img/フラスコアイコン.png" alt="研究室" height="28">
+                        </div>
+                        <span style="color: #fff">研究室</span>
+                    </a>
+                </li>
+                <li class="col-4 col-lg-2 nav-item border">
+                    <a class="nav-link" href="./index.html">
+                        <div class="icon_wrap">
+                            <img src="./img/科学アイコン.png" alt="大学院" height="28">
+                        </div>
+                        <span style="color: #fff">大学院</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- カルーセル -->
+    <!-- フェードで切り替わるカルーセルを設定 -->
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <!-- 下部のインジケーター -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+
+        <!-- スライドする画像 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active transparent">
+                <!-- trimでグラデーションをかけている -->
+                <img src="./img/スクールライフ1.jpg" class="d-block trim mx-auto" alt="スクールライフ1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>新しい生活</h5>
+                    <p>令和学院大学で始まる、”新しさ”にあふれた生活</p>
+                </div>
+            </div>
+            <div class="carousel-item transparent">
+                <img src="./img/スクールライフ2.jpg" class="d-block trim mx-auto" alt="スクールライフ2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>学友たちと高め合う日々</h5>
+                    <p>性別や国籍も気にしないで、沢山の意見が飛び交うキャンパス</p>
+                </div>
+            </div>
+            <div class="carousel-item transparent">
+                <img src="./img/図書館.jpg" class="d-block trim mx-auto" alt="図書館">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>膨大な知識</h5>
+                    <p>大学は知の集積所。多くの情報にアクセスが可能</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 画像を進める・戻すボタン -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- ニュースコンテンツ -->
+    <div class="container pt-4">
+        <div class="text-center">
+
+            <!-- 内容絞り込み用のラジオボタン -->
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-secondary" for="btnradio1"><a class="anchor" id="news">すべて</a></label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn btn-secondary" for="btnradio2">お知らせ</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                <label class="btn btn-secondary" for="btnradio3">イベント</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                <label class="btn btn-secondary" for="btnradio4">その他</label>
+            </div>
+
+            <!-- ニュースのコンテンツ本体 -->
+            <!-- my-style.cssでデザイン、適用 -->
+            <ul class="news_list pt-4">
+                <li class="news_list_item">
+                    <a href="">
+                        <div class="news_list_date">
+                            <time>2022.07.08</time>
+                            <p class="news_item">お知らせ</p>
+                        </div>
+                        <p>新しい大学ホームページが公開されました。</p>
+                        <span class="arrow"></span>
+                    </a>
+                </li>
+                <li class="news_list_item">
+                    <a href="">
+                        <div class="news_list_date">
+                            <time>2020.07.02</time>
+                            <p class="news_item">お知らせ</p>
+                        </div>
+                        <p>夏季休暇中の証明書発行について。</p>
+                        <span class="arrow"></span>
+                    </a>
+                </li>
+                <li class="news_list_item">
+                    <a href="">
+                        <div class="news_list_date">
+                            <time>2020.05.12</time>
+                            <p class="news_item">イベント</p>
+                        </div>
+                        <p>学部2年生向けの学生コンペへの申込を受付中です。</p>
+                        <span class="arrow"></span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- リスト推移用のラジオボタン -->
+            <div class="btn-group pt-4" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="pages" id="pages1" autocomplete="off" checked>
+                <label class="btn btn-secondary" for="pages1">1</label>
+
+                <input type="radio" class="btn-check" name="pages" id="pages2" autocomplete="off">
+                <label class="btn btn-secondary" for="pages2">2</label>
+
+                <input type="radio" class="btn-check" name="pages" id="pages3" autocomplete="off">
+                <label class="btn btn-secondary" for="pages3">3</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 学生の活躍コンテンツ -->
+    <!-- カードコンポーネント敷き詰め場所 -->
+    <div class="container pt-5">
+        <h1 class="text-center text-black"><a class="anchor" id="achirve">学生の活躍</a></h1>
+        <div class="row pt-4">
+
+            <!-- レスポンシブ対応のためのcol -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card mb-5 border-2 text-center">
+                    <img class="card-img-top img-clipping" src="./img/computer.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">情報学科</h5>
+                        <p class="card-text">
+                            ○○ ○○さん<br>
+                            △△学会で大臣賞を受賞。</p>
+                        <a href="#" class="btn btn-primary">記事へ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card mb-5 border-2 text-center">
+                    <img class="card-img-top img-clipping" src="./img/building.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">建築学科</h5>
+                        <p class="card-text">
+                            ○○ ○○さん<br>
+                            △△学会で大臣賞を受賞。</p>
+                        <a href="#" class="btn btn-success">記事へ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card mb-5 border-2 text-center">
+                    <img class="card-img-top img-clipping" src="./img/biology.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">生物学科</h5>
+                        <p class="card-text">
+                            ○○ ○○さん<br>
+                            △△学会で大臣賞を受賞。</p>
+                        <a href="#" class="btn btn-primary">記事へ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card mb-5 border-2 text-center">
+                    <img class="card-img-top img-clipping" src="./img/flask.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">化学学科</h5>
+                        <p class="card-text">
+                            ○○ ○○さん<br>
+                            △△学会で大臣賞を受賞。</p>
+                        <a href="#" class="btn btn-success">記事へ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card mb-5 border-2 text-center">
+                    <img class="card-img-top img-clipping" src="./img/invention.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">情報学科</h5>
+                        <p class="card-text">
+                            ○○ ○○さん<br>
+                            △△学会で大臣賞を受賞。</p>
+                        <a href="#" class="btn btn-primary">記事へ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card mb-5 border-2 text-center">
+                    <img class="card-img-top img-clipping" src="./img/machine.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">機械学科</h5>
+                        <p class="card-text">
+                            ○○ ○○さん<br>
+                            △△学会で大臣賞を受賞。</p>
+                        <a href="#" class="btn btn-success">記事へ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- オープンキャンパス用コンテンツ -->
+    <!-- opencanpasで背景に画像などを設定 -->
+    <div class="mt-5 text-white opencanpas">
+        <div class="container pb-5">
+            <h1 class="display-4 pt-5"><a class="text-white anchor" id="opencanpas">
+                    <b style="color:cornflowerblue">オ</b>
+                    ープンキャンパス</a></h1>
+            <p>まずは大学生活の雰囲気を体験しよう！オープンキャンパスで得られるものは多い。<br>
+                講堂での全体オリエンテーション。学内施設・研究室の紹介。<br>
+                あなたの望む情報が手に入るでしょう。<br>
+            </p>
+            <div style="text-align:right">
+                <!-- 申し込みボタン　右揃え -->
+                <a class="btn btn-outline-light btn-lg" href="./form.html" role="button">申し込みはこちら
+                    &raquo;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <!-- wrap > box の構造でデザインを適用 -->
+    <footer>
+        <div class="footer">
+            <div class="wrap">
+                
+                <!-- diamondShape で◇状に切り抜き -->
+                <div class="logo diamondShape text-center">
+                    <img src="./img/logo.png" alt="logo" width="80">
+                    <b>令和学院大学</b>
+                </div>
+
+                <!-- boxにリストを詰め込む -->
+                <div class="box">
+                    <h3>大学紹介</h3>
+                    <ul>
+                        <li><a href="#">年間予定</a></li>
+                        <li><a href="#">施設紹介</a></li>
+                        <li><a href="#">留学・国際交流</a></li>
+                        <li><a href="#">地域交流</a></li>
+                        <li><a href="#">1日のスケジュール</a></li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>リンク</h3>
+                    <ul>
+                        <li><a href="#">お問い合わせ</a></li>
+                        <li><a href="#">交通案内</a></li>
+                        <li><a href="#">関連機関</a></li>
+                        <li><a href="#">在学生・保護者の方へ</a></li>
+                        <li><a href="#">卒業生の方へ</a></li>
+                    </ul>
+                </div>
+
+                <!-- コピーライト -->
+                <p class="copyright">
+                    @ 2022 Reiwa Gakuin University
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
